@@ -9,9 +9,6 @@ linters:
     # Reports unused function parameters
     # disabled because to many false positives
     - unparam
-    # Goimports does everything that gofmt does. Additionally it checks unused imports
-    # disabled because it is annoying that the imports have to be in a specific order / grouped with newlines
-    - goimports
     # Checks that no init functions are present in Go code
     # disabled because init functions are ok, not nice, just ok
     - gochecknoinits
