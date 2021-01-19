@@ -3,7 +3,7 @@
 ## Usage
 
 ```shell
-$ docker run -v $(go env GOPATH):/go -v $(pwd):/app -w /app --rm quay.io/mittwlad/golangci-lint:latest golangci-lint run -v ./...
+$ docker run -v $(go env GOPATH):/go -v $(pwd):/app -w /app --rm quay.io/mittwald/golangci-lint:latest golangci-lint run -v ./...
 ```
 
 ## Recommended Goland Settings
