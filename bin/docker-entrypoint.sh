@@ -15,4 +15,4 @@ if [[ -f "${GOLANGCI_ADDITIONAL_YML}" ]]; then
   fi
 fi
 
-$*
+exec "${@}"
