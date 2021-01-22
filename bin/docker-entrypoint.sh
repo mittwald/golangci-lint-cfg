@@ -15,12 +15,4 @@ if [[ -f "${GOLANGCI_ADDITIONAL_YML}" ]]; then
   fi
 fi
 
-# check if the first argument passed in looks like a flag
-if [ "${1#-}" != "$1" ]; then
-  set -- /sbin/tini -- golangci-lint "$@"
-# check if the first argument passed in is golangci-lint
-elif [ "$1" = 'golangci-lint' ]; then
-  set -- /sbin/tini -- "$@"
-fi
-
 exec "$@"
