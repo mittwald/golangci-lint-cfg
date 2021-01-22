@@ -43,18 +43,16 @@ $ docker run \
 
 * Settings > Tools > File Watcher: Add `go fmt`.
 
-* Settings > Editor > Code Style > Go > Imports
+* Settings > Editor > Code Style > Go
 
-![code style imports](assets/goland-code-style/imports.png)
+  * Tabs and Indents
+    ![code style tabs and indents](assets/goland-code-style/tabs-and-indents.png)
 
-* Settings > Editor > Code Style > Go > Tabs and Indents
+  * Wrapping and braces
+    ![wrapping and braces](assets/goland-code-style/wrapping-and-braces.png)
 
-![code style tabs and indents](assets/goland-code-style/tabs-and-indents.png)
+  * Imports
+    ![code style imports](assets/goland-code-style/imports.png)
 
-* Settings > Editor > Code Style > Go > Wrapping and braces
-
-![wrapping and braces](assets/goland-code-style/tabs-and-indents.png)
-
-* Settings > Editor > Code Style > Go > Other: Activate `Add leading space to comments`.
-
-![other](assets/goland-code-style/other.png)
+  * Other: Activate `Add leading space to comments`.
+    ![other](assets/goland-code-style/other.png)
