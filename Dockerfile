@@ -9,7 +9,7 @@ ENV         GOLANGCI_BASIC_YML="/home/${LINT_NAME}/.golangci.yml"
 
 RUN         set -xe \
             && \
-            apt-get update && apt-get install make -y \
+            apt-get update && apt-get install make tini -y \
             && \
             groupadd --gid "${LINT_ID}" "${LINT_NAME}" \
             && \
