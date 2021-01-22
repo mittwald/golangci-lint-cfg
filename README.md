@@ -42,5 +42,19 @@ $ docker run \
 ## Recommended Goland Settings
 
 * Settings > Tools > File Watcher: Add `go fmt`.
-* Settings > Editor > Code Style > Go > Imports: Set `Sorting Type` to `goimports`.
+
+* Settings > Editor > Code Style > Go > Imports
+
+![code style imports](assets/goland-code-style/imports.png)
+
+* Settings > Editor > Code Style > Go > Tabs and Indents
+
+![code style tabs and indents](assets/goland-code-style/tabs-and-indents.png)
+
+* Settings > Editor > Code Style > Go > Wrapping and braces
+
+![wrapping and braces](assets/goland-code-style/tabs-and-indents.png)
+
 * Settings > Editor > Code Style > Go > Other: Activate `Add leading space to comments`.
+
+![other](assets/goland-code-style/other.png)
