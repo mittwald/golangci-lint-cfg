@@ -9,9 +9,15 @@ ENV         GOLANGCI_BASIC_YML="/home/${LINT_NAME}/.golangci.yml"
 
 RUN         set -xe \
             && \
+            apt-get update && apt-get install make -y \
+            && \
             groupadd --gid "${LINT_ID}" "${LINT_NAME}" \
             && \
-            useradd --uid "${LINT_ID}" --gid "${LINT_NAME}" --shell /bin/bash --create-home "${LINT_NAME}"
+            useradd --uid "${LINT_ID}" --gid "${LINT_NAME}" --shell /bin/bash --create-home "${LINT_NAME}" \
+            && \
+            apt-get autoremove -y && apt-get autoclean -y \
+            && \
+            rm -rf /tmp/* /var/cache/*
 
 COPY        .golangci.yml ${GOLANGCI_BASIC_YML}
 
