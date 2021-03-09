@@ -117,13 +117,13 @@ issues:
       text: "SA1019: package github.com/golang/protobuf/proto is deprecated:"
 
 run:
+  build-tags:
+    - codeanalysis
   skip-dirs:
     - tests/
-    - cmd/test-*
     - pkg/pb/
   skip-files:
     - .*/generated\.go
     - .*_test\.go
-    - test\.go
   timeout: 10m
 
