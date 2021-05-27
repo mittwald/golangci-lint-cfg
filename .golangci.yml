@@ -52,6 +52,9 @@ linters:
     # Checks that errors returned from external packages are wrapped
     # disabled because even errors returned from internal interfaces must me wrapped, which is overkill
     - wrapcheck
+    # exhaustivestruct is a go static analysis tool to find structs that have uninitialized fields
+    # this linter is meant to be used only for special cases. It is not recommended to use it for all files in a project.
+    - exhaustivestruct
 
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
