@@ -104,6 +104,8 @@ linters-settings:
     errorf: false
 
 issues:
+  # show more issues of the same type
+  max-same-issues: 100
   # Excluding configuration per-path, per-linter, per-text and per-source
   exclude-rules:
     # Exclude lll issues for long lines with go:generate
