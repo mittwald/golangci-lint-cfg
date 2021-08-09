@@ -28,3 +28,5 @@ COPY        --from=mikefarah/yq:3.4.1 /usr/bin/yq ${YQ}
 COPY        --chown=1000:1000 bin/golangci-lint-wrapper.sh /usr/bin/golangci-lint
 
 USER        ${LINT_ID}:${LINT_ID}
+
+ENV         PATH /usr/bin:$PATH 
