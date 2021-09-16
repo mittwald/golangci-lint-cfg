@@ -22,8 +22,7 @@ RUN         set -xe \
 
 COPY        --chown=1000:1000 .golangci.yml ${GOLANGCI_BASIC_YML}
 
-# do not update this to v4 because it lacks the "merge"-command
-COPY        --from=mikefarah/yq:3.4.1 /usr/bin/yq ${YQ}
+COPY        --from=mikefarah/yq:4.13.0 /usr/bin/yq ${YQ}
 
 COPY        --chown=1000:1000 bin/golangci-lint-wrapper.sh /usr/bin/golangci-lint
 
