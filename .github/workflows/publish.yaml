@@ -34,3 +34,4 @@ jobs:
           tags: ${{ steps.docker_meta.outputs.tags }}
           context: .
           file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
