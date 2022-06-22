@@ -16,4 +16,9 @@ if [[ -n "${DEBUG}" ]]; then
   echo "---"
 fi
 
-exec "${GOLANGCI_LINT}" -c "${GOLANGCI_BASIC_YML}" $*
+CONFIG_FLAG="-c ${GOLANGCI_BASIC_YML}"
+if [[ "${1}" != "run" ]]; then
+  CONFIG_FLAG=""
+fi
+
+exec "${GOLANGCI_LINT}" ${CONFIG_FLAG} $*

@@ -2,6 +2,10 @@
 
 set -e
 
+isCommand() {
+   /usr/bin/golangci-lint-orig "${1}" --help > /dev/null 2>&1
+}
+
 [[ -z "${DEBUG}" ]] || set -x
 
 if [[ ! "$(id -u "${LINT_NAME}")" -eq "${LINT_ID}" ]] || [[ ! "$(id -g "${LINT_NAME}")" -eq "${LINT_ID}" ]]; then
@@ -18,4 +22,12 @@ if [[ ! "$(id -u "${LINT_NAME}")" -eq "${LINT_ID}" ]] || [[ ! "$(id -g "${LINT_N
   rm -rf "${TMP_HOME}"
 fi
 
-gosu "${LINT_NAME}" bash -c "$*"
+if [ "${1#-}" != "$1" ]; then
+  gosu "${LINT_NAME}" /usr/bin/golangci-lint "run $*"
+elif [ "$1" = 'golangci-lint' ]; then
+  gosu "${LINT_NAME}" $@
+elif isCommand "$1"; then
+  gosu "${LINT_NAME}" /usr/bin/golangci-lint "$@"
+fi
+
+exec "${@}"
