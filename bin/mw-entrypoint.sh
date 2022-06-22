@@ -10,12 +10,12 @@ if [[ ! "$(id -u "${LINT_NAME}")" -eq "${LINT_ID}" ]] || [[ ! "$(id -g "${LINT_N
 
   usermod -d "${TMP_HOME}" "${LINT_NAME}"
 
-  usermod -o -u "${NODE_UID}" "${LINT_NAME}"
-  groupmod -o -g "${NODE_GID}" "${LINT_NAME}"
+  usermod -o -u "${LINT_ID}" "${LINT_NAME}"
+  groupmod -o -g "${LINT_ID}" "${LINT_NAME}"
 
   usermod -d "/home/${LINT_NAME}" "${LINT_NAME}"
 
   rm -rf "${TMP_HOME}"
 fi
 
-gosu "${LINT_NAME}" $*
+gosu "${LINT_NAME}" bash -c "$*"
