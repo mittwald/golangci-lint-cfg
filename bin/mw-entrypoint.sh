@@ -23,11 +23,11 @@ if [[ ! "$(id -u "${LINT_NAME}")" -eq "${LINT_ID}" ]] || [[ ! "$(id -g "${LINT_N
 fi
 
 if [ "${1#-}" != "$1" ]; then
-  gosu "${LINT_NAME}" /usr/bin/golangci-lint "run $*"
+  exec gosu "${LINT_NAME}" /usr/bin/golangci-lint "run $*"
 elif [ "$1" = 'golangci-lint' ]; then
-  gosu "${LINT_NAME}" $@
+  exec gosu "${LINT_NAME}" $@
 elif isCommand "$1"; then
-  gosu "${LINT_NAME}" /usr/bin/golangci-lint "$@"
+  exec gosu "${LINT_NAME}" /usr/bin/golangci-lint "$@"
 fi
 
 exec "${@}"
