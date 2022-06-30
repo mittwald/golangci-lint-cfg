@@ -52,6 +52,13 @@ linters:
     # Checks that errors returned from external packages are wrapped
     # disabled because even errors returned from internal interfaces must me wrapped, which is overkill
     - wrapcheck
+    # rename of exhaustivestruct linter, same reasons
+    - exhaustruct
+    # checks if functions return interfaces. Disabled because interfaces are an integral part of our code generation
+    - ireturn
+    # prevents named returns. Disabled because we don't share the authors fervor against named returns
+    - nonamedreturns
+
 
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
