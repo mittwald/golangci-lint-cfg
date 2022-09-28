@@ -58,7 +58,8 @@ linters:
     - ireturn
     # prevents named returns. Disabled because we don't share the authors fervor against named returns
     - nonamedreturns
-
+    # checks for casing, will error on generated proto code because some vars are always uppercased
+    - nosnakecase
 
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
