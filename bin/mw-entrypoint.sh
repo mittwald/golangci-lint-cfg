@@ -3,7 +3,7 @@
 set -e
 
 isCommand() {
-   /usr/bin/golangci-lint-orig "${1}" --help > /dev/null 2>&1
+   /usr/bin/golangci-lint-orig help "${1}" > /dev/null 2>&1
 }
 
 [[ -z "${DEBUG}" ]] || set -x
