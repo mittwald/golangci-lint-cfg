@@ -1,4 +1,4 @@
-# tested with golangci/golangci-lint:v1.35
+# tested with golangci/golangci-lint:v1.52.2
 
 linters:
   enable-all: true
@@ -60,16 +60,29 @@ linters:
     - nonamedreturns
     # checks for casing, will error on generated proto code because some vars are always uppercased
     - nosnakecase
+    # deprecated
+    - scopelint # repalced by exportloopref
+    - deadcode # replaced by unused
+    - structcheck # replaced by unused
+    - varcheck # replaced by unused
+    - maligned # replaced by govet fieldalignment
+    - golint #  replaced by revive
+    - interfacer # archived, a tool that suggests interfaces is prone to bad suggestions
+    - ifshort # archived, false positives
 
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
   govet:
     # report about shadowed variables
     check-shadowing: true
-  # Golint differs from gofmt. Gofmt reformats Go source code, whereas golint prints out style mistakes
-  golint:
+    enable:
+      - fieldalignment
+  # revive differs from gofmt. Gofmt reformats Go source code, whereas revive prints out style mistakes
+  revive:
     # minimal confidence for issues
-    min-confidence: 0
+    confidence: 0
+    severity: error
+    formatter: friendly
   # Computes and checks the cyclomatic complexity of functions
   gocyclo:
     # minimal code complexity to report
