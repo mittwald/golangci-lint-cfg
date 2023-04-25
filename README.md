@@ -45,18 +45,18 @@ $ docker run \
 
 * Settings > Editor > Code Style > Go
 
-  * Tabs and Indents
+    * Tabs and Indents
 
-    ![code style tabs and indents](assets/goland-code-style/tabs-and-indents.png)
+      ![code style tabs and indents](assets/goland-code-style/tabs-and-indents.png)
 
-  * Wrapping and braces
+    * Wrapping and braces
 
-    ![wrapping and braces](assets/goland-code-style/wrapping-and-braces.png)
+      ![wrapping and braces](assets/goland-code-style/wrapping-and-braces.png)
 
-  * Imports
+    * Imports
 
-    ![code style imports](assets/goland-code-style/imports.png)
+      ![code style imports](assets/goland-code-style/imports.png)
 
-  * Other: Activate `Add leading space to comments`
+    * Other: Activate `Add leading space to comments`
 
-    ![other](assets/goland-code-style/other.png)
+      ![other](assets/goland-code-style/other.png)
