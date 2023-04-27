@@ -75,8 +75,6 @@ linters-settings:
   govet:
     # report about shadowed variables
     check-shadowing: true
-    enable:
-      - fieldalignment
   # revive differs from gofmt. Gofmt reformats Go source code, whereas revive prints out style mistakes
   revive:
     # minimal confidence for issues
