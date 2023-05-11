@@ -61,7 +61,7 @@ linters:
     # checks for casing, will error on generated proto code because some vars are always uppercased
     - nosnakecase
     # deprecated
-    - scopelint # repalced by exportloopref
+    - scopelint # replaced by exportloopref
     - deadcode # replaced by unused
     - structcheck # replaced by unused
     - varcheck # replaced by unused
@@ -69,6 +69,7 @@ linters:
     - golint #  replaced by revive
     - interfacer # archived, a tool that suggests interfaces is prone to bad suggestions
     - ifshort # archived, false positives
+    - varnamelen # unneeded, short varnames can be reasonable i.e i= index, n= amount or s *Service, reviewer should pay attention to disapprove lines like ´for i, e := range l {}´
 
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
