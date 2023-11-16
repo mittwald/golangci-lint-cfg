@@ -1,4 +1,4 @@
-# tested with golangci/golangci-lint:v1.54.2
+# tested with golangci/golangci-lint:v1.55.2
 
 linters:
   enable-all: true
