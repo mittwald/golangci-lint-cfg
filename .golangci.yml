@@ -70,6 +70,7 @@ linters:
     - interfacer # archived, a tool that suggests interfaces is prone to bad suggestions
     - ifshort # archived, false positives
     - varnamelen # unneeded, short varnames can be reasonable i.e i= index, n= amount or s *Service, reviewer should pay attention to disapprove lines like ´for i, e := range l {}´
+    - protogetter # disabled because it is very annoying and brings little improvement
 
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
