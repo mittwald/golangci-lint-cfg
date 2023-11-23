@@ -10,6 +10,11 @@ if [[ -f "${GOLANGCI_ADDITIONAL_YML}" ]]; then
 
 fi
 
+if [[ -n "${CREATE_WORKDIR_GOLANGCI_YML}" ]]; then
+  echo "\${CREATE_WORKDIR_GOLANGCI_YML} is set, creating a '.golangci.yml' in '${PWD}'"
+  cp -a "${GOLANGCI_BASIC_YML}" "${PWD}/.golangci.yml"
+fi
+
 if [[ -n "${DEBUG}" ]]; then
   echo "---"
   cat "${GOLANGCI_BASIC_YML}"
