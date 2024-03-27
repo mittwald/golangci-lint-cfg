@@ -1,4 +1,4 @@
-# tested with golangci/golangci-lint:v1.55.2
+# tested with golangci/golangci-lint:v1.57.1
 
 linters:
   enable-all: true
@@ -75,8 +75,8 @@ linters:
 linters-settings:
   # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose
   govet:
-    # report about shadowed variables
-    check-shadowing: true
+    enable:
+      - shadow
   # revive differs from gofmt. Gofmt reformats Go source code, whereas revive prints out style mistakes
   revive:
     # minimal confidence for issues
@@ -128,12 +128,17 @@ issues:
   # show more issues of the same type
   max-same-issues: 100
   # Excluding configuration per-path, per-linter, per-text and per-source
+  exclude-dirs:
+    - tests/
+    - pkg/pb/
+  exclude-files:
+    - .*/generated\.go
+    - .*_test\.go
   exclude-rules:
     # Exclude lll issues for long lines with go:generate
     - linters:
         - lll
       source: "^//go:generate "
-
     - linters:
         - staticcheck
       # activate it when github.com/golang/protobuf/proto is migrated to google.golang.org/protobuf/proto
@@ -142,11 +147,5 @@ issues:
 run:
   build-tags:
     - codeanalysis
-  skip-dirs:
-    - tests/
-    - pkg/pb/
-  skip-files:
-    - .*/generated\.go
-    - .*_test\.go
   timeout: 10m
 
