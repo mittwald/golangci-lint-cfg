@@ -1,4 +1,4 @@
-FROM        golangci/golangci-lint:v1.56.2
+FROM        golangci/golangci-lint:v1.57.1
 
 ENV         LINT_NAME="mittwald-golangci" \
             LINT_ID="1000" \
