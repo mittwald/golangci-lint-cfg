@@ -129,7 +129,7 @@ issues:
   max-same-issues: 100
   # Excluding configuration per-path, per-linter, per-text and per-source
   exclude-dirs:
-    - tests/
+    - test(s)?/
     - pkg/pb/
   exclude-files:
     - .*/generated\.go
