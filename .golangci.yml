@@ -1,4 +1,4 @@
-# tested with golangci/golangci-lint:v1.57.1
+# tested with golangci/golangci-lint:v1.60.0
 
 linters:
   enable-all: true
@@ -20,7 +20,7 @@ linters:
     - gomnd
     # Golang linter to check the errors handling expressions
     # disabled because it forces a lot that does not work with golang github pkg errors
-    - goerr113
+    - err113
     # Tool for detection of FIXME, TODO and other comment keywords
     # disabled because it is ok
     - godox
@@ -33,10 +33,6 @@ linters:
     # nlreturn checks for a new line before return and branch statements to increase code clarity
     # disabled because it is very annoying and brings little improvement
     - nlreturn
-    # Checks if all struct's fields are initialized
-    # disabled because: 'This linter is meant to be used only for special cases.
-    # It is not recommended to use it for all files in a project.'
-    - exhaustivestruct
     # forbidigo is a Go static analysis tool to forbidigo use of particular identifiers
     # disabled because the linter forbids fmt.Printf/Errorf
     - forbidigo
@@ -58,17 +54,6 @@ linters:
     - ireturn
     # prevents named returns. Disabled because we don't share the authors fervor against named returns
     - nonamedreturns
-    # checks for casing, will error on generated proto code because some vars are always uppercased
-    - nosnakecase
-    # deprecated
-    - scopelint # replaced by exportloopref
-    - deadcode # replaced by unused
-    - structcheck # replaced by unused
-    - varcheck # replaced by unused
-    - maligned # replaced by govet fieldalignment
-    - golint #  replaced by revive
-    - interfacer # archived, a tool that suggests interfaces is prone to bad suggestions
-    - ifshort # archived, false positives
     - varnamelen # unneeded, short varnames can be reasonable i.e i= index, n= amount or s *Service, reviewer should pay attention to disapprove lines like ´for i, e := range l {}´
     - protogetter # disabled because it is very annoying and brings little improvement
 
@@ -133,7 +118,6 @@ issues:
     - pkg/pb/
   exclude-files:
     - .*/generated\.go
-    - .*_test\.go
   exclude-rules:
     # Exclude lll issues for long lines with go:generate
     - linters:
@@ -145,6 +129,7 @@ issues:
       text: "SA1019: package github.com/golang/protobuf/proto is deprecated:"
 
 run:
+  tests: false
   build-tags:
     - codeanalysis
   timeout: 10m
