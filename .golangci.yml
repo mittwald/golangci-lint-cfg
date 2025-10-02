@@ -153,6 +153,9 @@ linters:
         - len
     nolintlint:
       allow-unused: false
+    spancheck:
+      extra-start-span-signatures:
+        - "tracing.StartSpanFromContext:opentelemetry"
   exclusions:
     generated: lax
     presets:
