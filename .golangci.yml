@@ -5,27 +5,116 @@ run:
   tests: false
   relative-path-mode: gomod
 linters:
-  default: all
+  default: none
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - canonicalheader
+    - containedctx
+    - contextcheck
+    - copyloopvar
+    - dogsled
+    - dupl
+    - dupword
+    - durationcheck
+    - errcheck
+    - errchkjson
+    - errname
+    - errorlint
+    - exptostd
+    - forcetypeassert
+    - funlen
+    - gocheckcompilerdirectives
+    - gochecksumtype
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - gomoddirectives
+    - goprintffuncname
+    - gosec
+    - govet
+    - inamedparam
+    - ineffassign
+    - interfacebloat
+    - intrange
+    - iotamixing
+    - lll
+    - makezero
+    - mirror
+    - misspell
+    - musttag
+    - nestif
+    - nilerr
+    - nilnesserr
+    - nilnil
+    - noctx
+    - nolintlint
+    - nosprintfhostport
+    - prealloc
+    - predeclared
+    - promlinter
+    - reassign
+    - recvcheck
+    - revive
+    - rowserrcheck
+    - sloglint
+    - spancheck
+    - sqlclosecheck
+    - staticcheck
+    - tagliatelle
+    - testableexamples
+    - testifylint
+    - thelper
+    - tparallel
+    - unconvert
+    - unused
+    - usestdlibvars
+    - usetesting
+    - wastedassign
   disable:
+    - arangolint
+    - cyclop
+    - decorder
     - depguard
-    - funcorder
+    - embeddedstructfieldcheck
     - err113
     - exhaustive
     - exhaustruct
     - forbidigo
+    - funcorder
+    - ginkgolinter
     - gochecknoglobals
     - gochecknoinits
+    - godoclint
     - godot
     - godox
+    - goheader
+    - gomodguard
+    - gosmopolitan
+    - grouper
+    - importas
     - ireturn
+    - loggercheck
+    - maintidx
     - mnd
     - nlreturn
+    - noinlineerr
     - nonamedreturns
+    - paralleltest
     - protogetter
+    - tagalign
+    - testpackage
     - unparam
+    - unqueryvet
     - varnamelen
+    - whitespace
     - wrapcheck
     - wsl
+    - wsl_v5
+    - zerologlint
   settings:
     dupl:
       threshold: 100
@@ -53,6 +142,20 @@ linters:
     revive:
       confidence: 0
       severity: error
+    staticcheck:
+      checks:
+        - "all"
+        - # Omit embedded fields from selector expression.
+        - "-QF1008"
+    testifylint:
+      disable:
+        - equal-values
+        - len
+    nolintlint:
+      allow-unused: false
+    spancheck:
+      extra-start-span-signatures:
+        - "tracing.StartSpanFromContext:opentelemetry"
   exclusions:
     generated: lax
     presets:
