@@ -126,6 +126,12 @@ linters:
     goconst:
       min-len: 3
       min-occurrences: 3
+      # composite literals (env maps, struct defaults) usually repeat values
+      # that are independent of each other; a shared constant would suggest a
+      # coupling that does not exist. Call is the linter's default exclusion.
+      exclude-types:
+        - Call
+        - CompositeLit
     gocritic:
       disabled-checks:
         - ifElseChain
